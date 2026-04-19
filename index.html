@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oliver Baccay — Mathematics & Data Science student at Northeastern University. Actuarial science, data engineering, and catastrophe risk.">
+  <meta name="author" content="Oliver Baccay">
+  <meta name="keywords" content="Oliver Baccay, actuary, data engineering, Northeastern University, catastrophe risk, P&C insurance">
+  <meta property="og:title" content="Oliver Baccay | Actuarial & Data Engineering">
+  <meta property="og:description" content="Mathematics & Data Science student at Northeastern University focused on actuarial science and data engineering.">
+  <meta property="og:type" content="website">
+  <title>Ollie's Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header id="header">
+    <nav class="nav-container">
+      <a href="#hero" class="nav-logo">Oliver Baccay</a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#exams">Exams</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li>
+          <button id="theme-toggle" aria-label="Toggle dark/light mode">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <h1>Oliver Baccay</h1>
+      <p class="hero-tagline">Mathematics & Data Science | Northeastern University '28</p>
+      <p class="hero-subtitle">Actuarial Science | Data Engineering | Catastrophe Risk</p>
+      <div class="hero-actions">
+        <a href="mailto:baccay.o@northeastern.edu" class="btn">Contact me here &rarr;</a>
+        <a href="assets/resume.pdf" download class="btn btn-outline">Download CV</a>
+      </div>
+      <div class="hero-links">
+        <a href="https://github.com/ollieb216" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/oliverbaccay" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:baccay.o@northeastern.edu" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p class="about-text">
+        I'm Oliver Baccay, a second-year Mathematics major with a Data Science minor at Northeastern University, pursuing the actuarial track with a focus on P&C insurance and catastrophe risk. I've worked as a Data Engineer at Cortex building ETL pipelines and NLP-powered knowledge graphs, and I'm heading to Travelers and John Hancock for actuarial roles this summer and fall.
+      </p>
+      <p class="about-text" style="margin-top: 16px;">
+        I'm passionate about applying data engineering and quantitative skills to actuarial problems. Currently preparing for SOA Exam FM. Originally from Chappaqua, NY and now based in Boston, MA.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="exp-list">
+
+        <div class="exp-card">
+          <div class="exp-logo">
+            <!-- John Hancock logo placeholder — initial letter -->
+            <img src="assets/john-hancock-logo.jpeg" alt="John Hancock">
+          </div>
+          <div class="exp-info">
+            <div class="exp-top">
+              <h3>John Hancock <span class="exp-type">Co-op</span></h3>
+              <span class="exp-date">Sept 2026 &ndash; Dec 2026</span>
+            </div>
+            <p class="exp-role">Incoming Actuary</p>
+            <p class="exp-location">Boston, MA</p>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-logo">
+            <img src="assets/travelers-logo.jpeg" alt="Travelers">
+          </div>
+          <div class="exp-info">
+            <div class="exp-top">
+              <h3>Travelers <span class="exp-type">Internship</span></h3>
+              <span class="exp-date">June 2026 &ndash; Aug 2026</span>
+            </div>
+            <p class="exp-role">Incoming Actuary (ALDP)</p>
+            <p class="exp-location">Hartford, CT</p>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-logo">
+            <img src="assets/cortex-logo.jpeg" alt="Cortex">
+          </div>
+          <div class="exp-info">
+            <div class="exp-top">
+              <h3>Cortex <span class="exp-type">Contract</span></h3>
+              <span class="exp-date">Jan 2026 &ndash; April 2026</span>
+            </div>
+            <p class="exp-role">Data Engineer</p>
+            <p class="exp-location">Boston, MA</p>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-logo">
+            <img src="assets/nicolaysen-logo.jpeg" alt="Nicolaysen Insurance Agency">
+          </div>
+          <div class="exp-info">
+            <div class="exp-top">
+              <h3>Nicolaysen Insurance Agency <span class="exp-type">Internship</span></h3>
+              <span class="exp-date">July 2025 &ndash; Aug 2025</span>
+            </div>
+            <p class="exp-role">Property &amp; Casualty Intern</p>
+            <p class="exp-location">Chappaqua, NY</p>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-logo">
+            <img src="assets/sarah-lawrence-college-logo.jpg" alt="Sarah Lawrence College">
+          </div>
+          <div class="exp-info">
+            <div class="exp-top">
+              <h3>Sarah Lawrence College <span class="exp-type">Research</span></h3>
+              <span class="exp-date">May 2024 &ndash; Aug 2024</span>
+            </div>
+            <p class="exp-role">Physics Research Intern (NMR)</p>
+            <p class="exp-location">Bronxville, NY</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <h3>Life Insurance Premium Calculator</h3>
+          <p>Interactive Python Shiny app that estimates life insurance premiums by modeling mortality probabilities, demographic risk factors, and cost loading with real-time premium updates.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Shiny</span><span>NumPy</span>
+          </div>
+          <a href="https://github.com/ollieb216" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub &rarr;</a>
+        </div>
+
+        <div class="project-card">
+          <h3>NLP for Insurance Litigation</h3>
+          <p>Text analysis framework processing 8 insurance litigation cases using TF-IDF scoring to extract risk indicators and liability patterns, with Sankey diagram and Matplotlib visualizations.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Pandas</span><span>Plotly</span><span>Matplotlib</span><span>NLP</span>
+          </div>
+          <a href="https://github.com/ollieb216" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACTUARIAL EXAMS ============ -->
+  <section id="exams" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Actuarial Exams</h2>
+      <div class="exams-grid">
+        <div class="exam-card exam-passed">
+          <div class="exam-status">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Exam P</h3>
+          <p>Probability</p>
+          <span class="exam-date">Passed &mdash; Jan 2026</span>
+        </div>
+        <div class="exam-card exam-sitting">
+          <div class="exam-status">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Exam FM</h3>
+          <p>Financial Mathematics</p>
+          <span class="exam-date">Sitting &mdash; June 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-group">
+        <h3>Technologies</h3>
+        <div class="skills-tags">
+          <span>Python</span><span>Excel</span><span>SQL</span><span>Microsoft Office Suite</span><span>HTML/CSS</span><span>Power BI</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <h3>Tools / Libraries</h3>
+        <div class="skills-tags">
+          <span>Git</span><span>Docker</span><span>Pandas</span><span>NumPy</span><span>Statsmodels</span><span>SciPy</span><span>Scikit-Learn</span><span>Plotly</span><span>Seaborn</span><span>NLTK</span><span>HoloViz</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ============ INTERESTS ============ -->
+  <section id="interests" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Interests</h2>
+      <div class="interests-grid">
+
+        <div class="interest-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          <h3>Music</h3>
+          <p>Plays guitar, bass, violin, and drums. Performed at venues across the US and Canada. Loves 90's rock and audio engineering.</p>
+        </div>
+
+        <div class="interest-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 22 1-1h3l9-9"/><path d="M13 6l-1.4-1.4a2.1 2.1 0 0 1 0-3l.7-.7a2.1 2.1 0 0 1 3 0L22 7.6a2.1 2.1 0 0 1 0 3l-.7.7a2.1 2.1 0 0 1-3 0L17 10"/><path d="m8 8-1.5 1.5"/><path d="m14.5 5.5-8 8"/></svg>
+          <h3>Climbing</h3>
+          <p>Bouldering enthusiast.</p>
+        </div>
+
+        <div class="interest-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          <h3>Photography</h3>
+          <p>Enjoys shooting with digital and film cameras.</p>
+        </div>
+
+        <div class="interest-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <h3>Travel</h3>
+          <p>Spent first year of college studying abroad in London.</p>
+        </div>
+
+        <div class="interest-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
+          <h3>Sports</h3>
+          <p>Premier League fan.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
