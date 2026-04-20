@@ -647,14 +647,36 @@ ul {
     font-size: 2rem;
   }
 
+  .hero-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    white-space: normal;
+  }
+
   .hero-actions {
     flex-direction: column;
     align-items: center;
   }
 
-  .exp-top {
-    flex-direction: column;
-    gap: 2px;
+  .hero-links {
+    justify-content: center;
+  }
+
+  .interest-item {
+    width: 100%;
+    min-width: 0;
   }
 
 }

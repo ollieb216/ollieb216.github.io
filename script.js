@@ -136,5 +136,33 @@
       snapTo(hero);
     }
   }, { passive: false });
+
+  // Touch support for mobile
+  var touchStartY = null;
+
+  window.addEventListener('touchstart', function (e) {
+    if (!isAnimating) touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', function (e) {
+    if (isAnimating || touchStartY === null) return;
+    var deltaY = touchStartY - e.changedTouches[0].clientY;
+    touchStartY = null;
+
+    if (Math.abs(deltaY) < 50) return; // ignore small taps/drags
+
+    var scrollY = window.scrollY;
+    var heroHeight = hero.offsetHeight;
+    var aboutTop = about.offsetTop;
+
+    if (scrollY < heroHeight && deltaY > 0) {
+      snapTo(about);
+      return;
+    }
+
+    if (scrollY >= heroHeight && scrollY < aboutTop + about.offsetHeight && deltaY < 0) {
+      snapTo(hero);
+    }
+  }, { passive: true });
 })();
 
