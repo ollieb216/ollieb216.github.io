@@ -75,6 +75,9 @@
    Hero ↔ About Fling Snap
    ======================================== */
 (function () {
+  // Skip scroll snap on mobile/touch devices
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+
   var hero = document.getElementById('hero');
   var about = document.getElementById('about');
   var isAnimating = false;
@@ -91,7 +94,6 @@
     var duration = 700;
     var startTime = null;
 
-    // Disable CSS smooth scroll so our scrollTo calls are instant
     document.documentElement.style.scrollBehavior = 'auto';
 
     function animate(now) {
@@ -101,7 +103,6 @@
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
-        // Pin position to kill any remaining momentum
         function pin() { window.scrollTo(0, targetY); }
         window.addEventListener('scroll', pin);
         setTimeout(function () {
@@ -136,33 +137,5 @@
       snapTo(hero);
     }
   }, { passive: false });
-
-  // Touch support for mobile
-  var touchStartY = null;
-
-  window.addEventListener('touchstart', function (e) {
-    if (!isAnimating) touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-
-  window.addEventListener('touchend', function (e) {
-    if (isAnimating || touchStartY === null) return;
-    var deltaY = touchStartY - e.changedTouches[0].clientY;
-    touchStartY = null;
-
-    if (Math.abs(deltaY) < 50) return; // ignore small taps/drags
-
-    var scrollY = window.scrollY;
-    var heroHeight = hero.offsetHeight;
-    var aboutTop = about.offsetTop;
-
-    if (scrollY < heroHeight && deltaY > 0) {
-      snapTo(about);
-      return;
-    }
-
-    if (scrollY >= heroHeight && scrollY < aboutTop + about.offsetHeight && deltaY < 0) {
-      snapTo(hero);
-    }
-  }, { passive: true });
 })();
 
