@@ -374,47 +374,39 @@ ul {
   min-width: 0;
 }
 
-.exp-top {
+.exp-role {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.exp-detail-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 2px;
 }
 
-.exp-top h3 {
-  font-size: 1rem;
-  font-weight: 600;
+.exp-detail-row span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
 }
 
-.exp-type {
-  font-size: 0.75rem;
-  font-weight: 500;
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-left: 8px;
-  vertical-align: middle;
+.exp-company {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
 }
 
 .exp-date {
   font-size: 0.82rem;
   color: var(--text-secondary);
-  white-space: nowrap;
-}
-
-.exp-role {
-  font-size: 0.9rem;
-  color: var(--accent);
-  font-weight: 500;
-  margin-bottom: 2px;
 }
 
 .exp-location {
   font-size: 0.82rem;
   color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 /* ========================================
@@ -480,6 +472,7 @@ ul {
   font-size: 0.95rem;
   color: var(--accent);
   font-weight: 500;
+  margin-top: -20px;
   margin-bottom: 24px;
 }
 
@@ -589,6 +582,13 @@ ul {
   min-width: 200px;
   text-align: center;
   padding: 24px 16px;
+}
+
+.interest-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .interest-item svg {
