@@ -79,28 +79,45 @@
   var about = document.getElementById('about');
   var locked = false;
 
-  function snapTo(y) {
+  function killScroll(e) { e.preventDefault(); }
+
+  function freezeScroll() {
+    document.addEventListener('wheel', killScroll, { passive: false });
+    document.addEventListener('touchmove', killScroll, { passive: false });
+  }
+
+  function unfreezeScroll() {
+    document.removeEventListener('wheel', killScroll);
+    document.removeEventListener('touchmove', killScroll);
+  }
+
+  function snapTo(targetY) {
+    if (locked) return;
     locked = true;
-    window.scrollTo({ top: y, behavior: 'smooth' });
-    // Block all wheel events until well after animation ends
-    setTimeout(function () { locked = false; }, 1200);
+    freezeScroll();
+    window.scrollTo(0, targetY);
+    // Single frame to let the scroll land, then unlock
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        unfreezeScroll();
+        locked = false;
+      });
+    });
   }
 
   window.addEventListener('wheel', function (e) {
-    if (locked) { e.preventDefault(); return; }
+    if (locked) return;
 
     var scrollY = window.scrollY;
     var heroHeight = hero.offsetHeight;
     var aboutTop = about.offsetTop;
 
-    // In hero zone, scrolling down → snap to about
     if (scrollY < heroHeight * 0.8 && e.deltaY > 0) {
       e.preventDefault();
       snapTo(aboutTop);
       return;
     }
 
-    // Near top of about, scrolling up → snap to hero
     if (scrollY < aboutTop + about.offsetHeight * 0.5 && scrollY > heroHeight * 0.3 && e.deltaY < 0) {
       e.preventDefault();
       snapTo(0);
