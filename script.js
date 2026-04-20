@@ -77,50 +77,63 @@
 (function () {
   var hero = document.getElementById('hero');
   var about = document.getElementById('about');
-  var locked = false;
+  var isAnimating = false;
 
-  function killScroll(e) { e.preventDefault(); }
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
-  function freezeScroll() {
-    document.addEventListener('wheel', killScroll, { passive: false });
-    document.addEventListener('touchmove', killScroll, { passive: false });
-  }
+  function snapTo(el) {
+    if (isAnimating) return;
+    isAnimating = true;
 
-  function unfreezeScroll() {
-    document.removeEventListener('wheel', killScroll);
-    document.removeEventListener('touchmove', killScroll);
-  }
+    var startY = window.scrollY;
+    var targetY = el.offsetTop;
+    var distance = targetY - startY;
+    var duration = 700;
+    var startTime = null;
 
-  function snapTo(targetY) {
-    if (locked) return;
-    locked = true;
-    freezeScroll();
-    window.scrollTo(0, targetY);
-    // Single frame to let the scroll land, then unlock
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        unfreezeScroll();
-        locked = false;
-      });
-    });
+    // Disable CSS smooth scroll so our scrollTo calls are instant
+    document.documentElement.style.scrollBehavior = 'auto';
+
+    function animate(now) {
+      if (!startTime) startTime = now;
+      var progress = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, startY + distance * easeOutCubic(progress));
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        // Pin position to kill any remaining momentum
+        function pin() { window.scrollTo(0, targetY); }
+        window.addEventListener('scroll', pin);
+        setTimeout(function () {
+          window.removeEventListener('scroll', pin);
+          document.documentElement.style.scrollBehavior = '';
+          isAnimating = false;
+        }, 200);
+      }
+    }
+
+    requestAnimationFrame(animate);
   }
 
   window.addEventListener('wheel', function (e) {
-    if (locked) return;
+    if (isAnimating) {
+      e.preventDefault();
+      return;
+    }
 
     var scrollY = window.scrollY;
     var heroHeight = hero.offsetHeight;
     var aboutTop = about.offsetTop;
 
-    if (scrollY < heroHeight * 0.8 && e.deltaY > 0) {
+    if (scrollY < heroHeight && e.deltaY > 0) {
       e.preventDefault();
-      snapTo(aboutTop);
+      snapTo(about);
       return;
     }
 
-    if (scrollY < aboutTop + about.offsetHeight * 0.5 && scrollY > heroHeight * 0.3 && e.deltaY < 0) {
+    if (scrollY >= heroHeight && scrollY < aboutTop + about.offsetHeight && e.deltaY < 0) {
       e.preventDefault();
-      snapTo(0);
+      snapTo(hero);
     }
   }, { passive: false });
 })();
