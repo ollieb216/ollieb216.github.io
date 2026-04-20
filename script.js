@@ -70,3 +70,41 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
+
+/* ========================================
+   Hero ↔ About Fling Snap
+   ======================================== */
+(function () {
+  var hero = document.getElementById('hero');
+  var about = document.getElementById('about');
+  var locked = false;
+
+  function snapTo(y) {
+    locked = true;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    // Block all wheel events until well after animation ends
+    setTimeout(function () { locked = false; }, 1200);
+  }
+
+  window.addEventListener('wheel', function (e) {
+    if (locked) { e.preventDefault(); return; }
+
+    var scrollY = window.scrollY;
+    var heroHeight = hero.offsetHeight;
+    var aboutTop = about.offsetTop;
+
+    // In hero zone, scrolling down → snap to about
+    if (scrollY < heroHeight * 0.8 && e.deltaY > 0) {
+      e.preventDefault();
+      snapTo(aboutTop);
+      return;
+    }
+
+    // Near top of about, scrolling up → snap to hero
+    if (scrollY < aboutTop + about.offsetHeight * 0.5 && scrollY > heroHeight * 0.3 && e.deltaY < 0) {
+      e.preventDefault();
+      snapTo(0);
+    }
+  }, { passive: false });
+})();
+
