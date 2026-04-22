@@ -393,6 +393,13 @@ ul {
   color: var(--text-secondary);
 }
 
+.exp-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  font-style: italic;
+}
+
 .exp-company {
   font-size: 0.85rem;
   color: var(--text-secondary);
