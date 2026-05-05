@@ -116,6 +116,15 @@
     requestAnimationFrame(animate);
   }
 
+  // Intercept About nav link so it lands at the exact snap position
+  var aboutLink = document.querySelector('a[href="#about"]');
+  if (aboutLink) {
+    aboutLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      snapTo(about);
+    });
+  }
+
   window.addEventListener('wheel', function (e) {
     if (isAnimating) {
       e.preventDefault();
@@ -132,7 +141,7 @@
       return;
     }
 
-    if (scrollY >= heroHeight && scrollY < aboutTop + about.offsetHeight && e.deltaY < 0) {
+    if (scrollY >= aboutTop && scrollY <= aboutTop + 5 && e.deltaY < 0) {
       e.preventDefault();
       snapTo(hero);
     }
